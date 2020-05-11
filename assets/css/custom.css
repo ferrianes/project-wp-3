@@ -29,3 +29,7 @@
       z-index: -1;
     }
 }
+
+.bg-primary {
+  background-color: #007bff!important;
+}

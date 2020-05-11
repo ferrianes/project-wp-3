@@ -24,7 +24,7 @@
   <link rel="icon" type="image/png" href="<?= base_url('/assets/img/assets/icon.png'); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    RT04/04 Jatipadang
+    <?= $title; ?>
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -63,6 +63,11 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">
+              <p>Semua Berita</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
               <p>Pengaduan</p>
             </a>
           </li>
@@ -70,6 +75,20 @@
             <a class="nav-link" href="">
               <p>Tentang</p>
             </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="Login" data-toggle="dropdown">
+              <i class="now-ui-icons users_circle-08"></i>
+              <p>Log in</p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Login">
+              <a class="dropdown-item" href="">
+                <i class="now-ui-icons objects_key-25"></i> Masuk
+              </a>
+              <a class="dropdown-item" target="_blank" href="">
+                <i class="now-ui-icons business_badge"></i> Daftar
+              </a>
+            </div>
           </li>
         </ul>
       </div>
