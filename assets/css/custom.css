@@ -33,3 +33,7 @@
 .bg-primary {
   background-color: #007bff!important;
 }
+
+.page-header.login>.content {
+  margin-top: 6%;
+}

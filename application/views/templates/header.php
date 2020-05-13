@@ -39,7 +39,7 @@
   <link href="<?= base_url('/assets/css/custom.css'); ?>" rel="stylesheet" />
 </head>
 
-<body class="index-page sidebar-collapse">
+<body class="<?= $nav == 'Home' ? 'index-page' : ($nav == 'Login' ? 'login-page' : ''); ?> sidebar-collapse">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
@@ -95,6 +95,9 @@
     </div>
   </nav>
   <!-- End Navbar -->
+  <?php
+    if ($nav == 'Home') {
+  ?>
   <div class="wrapper">
     <div class="page-header clear-filter" filter-color="blue-ocean">
       <div class="page-header-image" data-parallax="true" style="background-image:url('<?= base_url('assets/img/assets/page-header.png') ?>');">
@@ -108,3 +111,4 @@
         <h6 class="category category-absolute">Designed & Coded by UBSI Students.</h6>
       </div>
     </div>
+  <?php } ?>

@@ -1,3 +1,4 @@
+    <?php if ($nav == 'Home') { ?>
     <footer class="footer" data-background-color="black">
       <div class=" container ">
         <nav>
@@ -30,6 +31,7 @@
       </div>
     </footer>
   </div>
+  <?php } ?>
   <!--   Core JS Files   -->
   <script src="<?= base_url('/assets/js/core/jquery.min.js'); ?>" type="text/javascript"></script>
   <script src="<?= base_url('/assets/js/core/popper.min.js'); ?>" type="text/javascript"></script>
