@@ -10,7 +10,7 @@ class Autentifikasi extends CI_Controller {
 
         $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email', [
             'required' => 'Email Harus diisi!!!',
-            'valid_email' => 'Email Tidak Benar'
+            'valid_email' => 'Email Tidak Valid!'
         ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim', [
             'required' => 'password Harus diisi!!!'
@@ -37,7 +37,7 @@ class Autentifikasi extends CI_Controller {
         //jika usernya ada
         if ($user) {
             //jika user sudah aktif
-            if ($user['is_active'] == 1) {
+            if ($user['status'] == 1) {
                 //cek password
                 if (password_verify($password, $user['password'])) {
                     $data = [
@@ -56,15 +56,21 @@ class Autentifikasi extends CI_Controller {
                         redirect('user');
                     }
                 } else {
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password Salah!!</div>');
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+                                                                <strong>Username atau Password</strong> Tidak Benar!
+                                                            </div>');
                     redirect('autentifikasi');
                 }
             } else {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User belum diaktifasi!!</div>');
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+                                                            User belum diaktifasi!!
+                                                        </div>');
                 redirect('autentifikasi');
             }
         } else {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email tidak terdaftar!!</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+                                                        Email tidak terdaftar!!
+                                                    </div>');
             redirect('autentifikasi');
         }
     }
@@ -111,10 +117,11 @@ class Autentifikasi extends CI_Controller {
         //tampilan registrasi. tapi jika disubmit kemudian validasi form diatas berjalan, maka data yang
         //diinput akan disimpan ke dalam tabel user
         if ($this->form_validation->run() == false) {
-            $data['judul'] = 'Registrasi Member';
-            $this->load->view('templates/aute_header', $data);
-            $this->load->view('autentifikasi/registrasi');
-            $this->load->view('templates/aute_footer');
+            $data['nav'] = 'Login';
+            $data['title'] = 'Registrasi';
+            $this->load->view('templates/header', $data);
+            $this->load->view('autentifikasi/register');
+            $this->load->view('templates/footer');
         } else {
             $email = $this->input->post('email', true);
             $data = [

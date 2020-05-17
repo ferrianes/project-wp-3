@@ -44,7 +44,7 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip" title="Sistem Informasi Portal Berita serta Pengaduan RT 04 RW 04 Jatipadang" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="<?= base_url(); ?>" rel="tooltip" title="Sistem Informasi Portal Berita serta Pengaduan RT 04 RW 04 Jatipadang" data-placement="bottom">
         <i class="now-ui-icons business_bulb-63"></i>
           RT 04 RW 04
         </a>
@@ -57,7 +57,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navigation">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="<?= base_url() ?>">
               <p>Beranda</p>
             </a>
           </li>
@@ -82,10 +82,10 @@
               <p>Log in</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Login">
-              <a class="dropdown-item" href="">
+              <a class="dropdown-item" href="<?= base_url('autentifikasi') ?>">
                 <i class="now-ui-icons objects_key-25"></i> Masuk
               </a>
-              <a class="dropdown-item" target="_blank" href="">
+              <a class="dropdown-item" href="<?= base_url('autentifikasi/registrasi') ?>">
                 <i class="now-ui-icons business_badge"></i> Daftar
               </a>
             </div>
