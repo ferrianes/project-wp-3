@@ -5,7 +5,11 @@ class Autentifikasi extends CI_Controller {
     public function index() {
         //Jika statusnya sudah login, maka tidak bisa mengakses halaman login alias dikembalikan ke tampilan user
         if ($this->session->userdata('email')) {
-            redirect('user');
+            if ($this->session->userdata('role_id') == 1) {
+                redirect('admin');
+            } else {
+                redirect('user');
+            }
         }
 
         $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email', [
